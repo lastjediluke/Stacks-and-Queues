@@ -11,6 +11,10 @@ stack::stack(std::string &data) {
     size =1;
 }
 
+stack::~stack() {
+    //step 1 create destructor similar to linked list
+}
+
 bool stack::isEmpty() const {
     return size==0;
 }
@@ -28,6 +32,7 @@ void stack::push(std::string &data) {
     //step 2 create a new node with the incoming data variable, storing the address of this node in head pointer
     //step 3 update new nodes next pointer with the address stored in step 1
     //step 4 update size of stack variable
+    // make sure to check if head is pointing to something
 }
 
 void stack::pop() {
@@ -35,4 +40,7 @@ void stack::pop() {
     //step 2 update head with address of second node
     //step 3 delete node pointed to by address stored in step 1
     //step 4 update size of stack variable
+    // make sure to check if head is pointing to something
 }
+
+

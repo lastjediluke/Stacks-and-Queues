@@ -15,6 +15,7 @@ class stack {
 public:
     stack();
     stack(std::string& data);
+    virtual ~stack();
     bool isEmpty()const;
     unsigned& stackSize() const;
     std::string& top()const;

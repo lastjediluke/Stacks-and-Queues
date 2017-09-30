@@ -15,6 +15,7 @@ class queue {
 public:
     queue();
     queue(std::string& data);
+    virtual ~queue();
     bool isEmpty()const;
     unsigned& queueSize() const;
     std::string& top()const;

@@ -11,6 +11,10 @@ queue::queue(std::string &data) {
     size=1;
 }
 
+queue::~queue() {
+    //step 1 create destructor similar to linked list
+}
+
 bool queue::isEmpty() const {
     return size==0;
 }
@@ -28,6 +32,8 @@ void queue::enqueue(std::string &data) {
     //step 2 update next of node pointed to by tail with address of new node
     //step 3 update tail with address of new node
     //step 4 update size of stack variable
+
+    // make sure to check if head is pointing to something
 }
 
 void queue::dequeue() {
@@ -35,4 +41,8 @@ void queue::dequeue() {
     //step 2 update head with address of second node
     //step 3 delete node pointed to by address stored in step 1
     //step 4 update size of stack variable
+
+    // make sure to check if head is pointing to something
 }
+
+
