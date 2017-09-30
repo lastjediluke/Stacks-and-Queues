@@ -11,8 +11,45 @@ queue::queue(std::string &data) {
     size=1;
 }
 
+queue::queue(const queue &original) {
+    if (original.head!= nullptr) {
+        node *original_tmp = original.head;
+        node *tmp = head = new node(original_tmp->data);
+
+        original_tmp = original_tmp->next;
+        while (original_tmp != nullptr) {
+            tmp->next = new node(original_tmp->data);
+            tmp = tmp->next;
+            tail=tmp;
+            original_tmp = original_tmp->next;
+        }
+    }
+}
+
 queue::~queue() {
     //step 1 create destructor similar to linked list
+}
+
+queue &queue::operator=(const queue &RHS) {
+    if(this != &RHS)
+    {
+        if (head!= nullptr)
+            delete this;
+        if (RHS.head!= nullptr) {
+
+            node *RHS_tmp = RHS.head;
+            node *tmp = head = new node(RHS_tmp->data);
+
+            RHS_tmp = RHS_tmp->next;
+            while (RHS_tmp != nullptr) {
+                tmp->next=new node(RHS_tmp->data);
+                tmp=tmp->next;
+                tail=tmp;
+                RHS_tmp = RHS_tmp->next;
+            }
+        }
+    }
+    return *this;
 }
 
 bool queue::isEmpty() const {
@@ -44,5 +81,3 @@ void queue::dequeue() {
 
     // make sure to check if head is pointing to something
 }
-
-

@@ -11,8 +11,44 @@ stack::stack(std::string &data) {
     size =1;
 }
 
+stack::stack(const stack &original) {
+    if (original.head!= nullptr) {
+        node *original_tmp = original.head;
+        node *tmp = head = new node(original_tmp->data);
+
+        original_tmp = original_tmp->next;
+        while (original_tmp != nullptr) {
+            tmp->next = new node(original_tmp->data);
+            tmp = tmp->next;
+            original_tmp = original_tmp->next;
+        }
+    }
+}
+
 stack::~stack() {
     //step 1 create destructor similar to linked list
+}
+
+stack &stack::operator=(const stack &RHS) {
+
+    if(this != &RHS)
+    {
+        if (head!= nullptr)
+            delete this;
+        if (RHS.head!= nullptr) {
+
+            node *RHS_tmp = RHS.head;
+            node *tmp = head = new node(RHS_tmp->data);
+
+            RHS_tmp = RHS_tmp->next;
+            while (RHS_tmp != nullptr) {
+                tmp->next=new node(RHS_tmp->data);
+                tmp=tmp->next;
+                RHS_tmp = RHS_tmp->next;
+            }
+        }
+    }
+    return *this;
 }
 
 bool stack::isEmpty() const {
@@ -42,5 +78,9 @@ void stack::pop() {
     //step 4 update size of stack variable
     // make sure to check if head is pointing to something
 }
+
+
+
+
 
 
