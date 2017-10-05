@@ -13,6 +13,7 @@ public:
     node * next;
 
     node(const std::string &data);
+    node();
 };
 
 

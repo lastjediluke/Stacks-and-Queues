@@ -27,6 +27,13 @@ queue::queue(const queue &original) {
 }
 
 queue::~queue() {
+
+    node *temp = head;
+    while (head != NULL){
+        temp = temp->next;
+        delete head;
+        head=temp;
+    }
     //step 1 create destructor similar to linked list
 }
 
@@ -56,15 +63,23 @@ bool queue::isEmpty() const {
     return size==0;
 }
 
-unsigned &queue::queueSize() const {
+unsigned queue::queueSize() const {
     return size;
 }
 
 std::string &queue::top() const {
+return head->data;
     //step 1 return top item of queue
+
 }
 
 void queue::enqueue(std::string &data) {
+    if (head->next != NULL) {
+        node *temp = new node(data);
+        tail->next = temp;
+        tail = temp;
+        size++;
+    }
     //step 1 create a new node
     //step 2 update next of node pointed to by tail with address of new node
     //step 3 update tail with address of new node
@@ -74,6 +89,12 @@ void queue::enqueue(std::string &data) {
 }
 
 void queue::dequeue() {
+    if (head->next != NULL) {
+        node *temp = head;
+        head = head->next;
+        delete temp;
+        size--;
+    }
     //step 1 store address of current top node (pointed to by head) in a node*
     //step 2 update head with address of second node
     //step 3 delete node pointed to by address stored in step 1

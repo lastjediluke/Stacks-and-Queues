@@ -20,7 +20,7 @@ public:
 
     queue&operator=(const queue& RHS);
     bool isEmpty()const;
-    unsigned& queueSize() const;
+    unsigned queueSize() const;
     std::string& top()const;
     void enqueue(std::string& data);
     void dequeue();
