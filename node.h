@@ -11,6 +11,7 @@ class node {
 public:
     std::string data;
     node * next;
+    double inp;
 
     explicit node(const std::string &data);
     explicit node (double info);

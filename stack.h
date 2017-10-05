@@ -15,6 +15,7 @@ class stack {
 public:
     stack();
     explicit stack(std::string& data);
+    explicit stack (double inp);
 
     stack(const stack& original);
     virtual ~stack();
@@ -23,6 +24,7 @@ public:
     bool isEmpty()const;
     unsigned stackSize() const;
     std::string& top()const;
+    double doubletop ();
     void push(std::string& data);
     void push(double info);
     void pop();

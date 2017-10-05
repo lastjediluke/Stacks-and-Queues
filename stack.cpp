@@ -10,6 +10,10 @@ stack::stack(std::string &data) {
     head = new node(data);
     size =1;
 }
+stack::stack(double inp){
+    head = nullptr;
+    size = 0;
+}
 
 stack::stack(const stack &original) {
     if (original.head!= nullptr) {
@@ -28,7 +32,7 @@ stack::stack(const stack &original) {
 stack::~stack() {
 
     node *temp = head;
-    while (head != NULL){
+    while (head != nullptr){
         temp = temp->next;
         delete head;
         head=temp;
@@ -62,6 +66,10 @@ bool stack::isEmpty() const {
     return size==0;
 }
 
+double stack::doubletop()
+{
+    return head->inp;
+}
 unsigned stack::stackSize() const {
     return size;
 }
@@ -69,7 +77,7 @@ unsigned stack::stackSize() const {
 std::string &stack::top() const {
 
     return head->data;
-    //step 1 Write this function to return the data from the top node on the stack
+    //step 1 Write this function to return  the data from the top node on the stack
 }
 
 void stack::push(double info){

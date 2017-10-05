@@ -10,6 +10,6 @@ node::node(){
     next = nullptr;
 }
 node::node(double info){
-    data = info;
+    inp = info;
     next = nullptr;
 }
