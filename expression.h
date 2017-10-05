@@ -11,7 +11,10 @@
 
 class expression {
     queue infix;
-    queue postfix;
+   queue postfix;
+
+
+
 
     stack conversion_buffer;
 
@@ -19,9 +22,11 @@ class expression {
 public:
     expression();
     expression(std::string& input_expression);
+    expression (double input);
 
 
-    int calculate_postfix();
+
+    double calculate_postfix();
     friend std::ostream& operator>>(std::ostream& steam, expression& RHS);
 
 };

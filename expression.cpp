@@ -3,3 +3,21 @@
 //
 
 #include "expression.h"
+
+//expression::expression(){}
+
+expression::expression(double input){
+
+}
+double expression::calculate_postfix(){
+
+}
+
+expression::expression(std::string& input_expression){
+    std::string operators[] = {"+", "-", "*", "/"};
+    for (int i = 0; i < 4; i++){
+        if (input_expression == operators[i]){
+
+        }
+    }
+}

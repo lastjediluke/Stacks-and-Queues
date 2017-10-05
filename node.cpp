@@ -7,5 +7,9 @@
 node::node(const std::string &data) : data(data), next(nullptr) {}
 node::node(){
     data = "";
-    next = NULL;
+    next = nullptr;
+}
+node::node(double info){
+    data = info;
+    next = nullptr;
 }

@@ -12,7 +12,8 @@ public:
     std::string data;
     node * next;
 
-    node(const std::string &data);
+    explicit node(const std::string &data);
+    explicit node (double info);
     node();
 };
 

@@ -68,12 +68,21 @@ unsigned stack::stackSize() const {
 
 std::string &stack::top() const {
 
-    return head->data
+    return head->data;
     //step 1 Write this function to return the data from the top node on the stack
 }
 
+void stack::push(double info){
+    if (head->next != nullptr) {
+        node *temp = head;
+        head = new node(info);
+        head->next = temp;
+        size++;
+    }
+}
+
 void stack::push(std::string &data) {
-    if (head->next != NULL) {
+    if (head->next != nullptr) {
         node *temp = head;
         head = new node(data);
         head->next = temp;
@@ -87,7 +96,7 @@ void stack::push(std::string &data) {
 }
 
 void stack::pop() {
-    if (head->next != NULL) {
+    if (head->next != nullptr) {
         node *temp = head;
         head = head->next;
         delete temp;

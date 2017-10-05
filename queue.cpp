@@ -29,7 +29,7 @@ queue::queue(const queue &original) {
 queue::~queue() {
 
     node *temp = head;
-    while (head != NULL){
+    while (head != nullptr){
         temp = temp->next;
         delete head;
         head=temp;
@@ -74,8 +74,8 @@ return head->data;
 }
 
 void queue::enqueue(std::string &data) {
-    if (head->next != NULL) {
-        node *temp = new node(data);
+    if (head->next != nullptr) {
+        auto *temp = new node(data);
         tail->next = temp;
         tail = temp;
         size++;
@@ -89,7 +89,7 @@ void queue::enqueue(std::string &data) {
 }
 
 void queue::dequeue() {
-    if (head->next != NULL) {
+    if (head->next != nullptr) {
         node *temp = head;
         head = head->next;
         delete temp;
