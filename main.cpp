@@ -16,7 +16,7 @@ void infix_postfix(std::string &exp){
         if (check != "+"&& check!= "-" && check!= "*" && check != "/" && check != "^"){
             result+=exp[i];
         }
-        else if (check == "+"&& check== "-" && check== "*" && check == "/" && check == "^"){
+        else if (check == "+"|| check== "-" || check== "*" || check == "/" || check == "^"){
             std::string thing;
             thing = exp[i];
 
