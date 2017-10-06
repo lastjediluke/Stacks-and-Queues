@@ -26,7 +26,7 @@ public:
     std::string& top()const;
     double doubletop ();
     void push(std::string& data);
-    void push(double info);
+    //void push(double info);
     void pop();
 };
 

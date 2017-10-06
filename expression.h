@@ -20,14 +20,14 @@ class expression {
 
     void infix_to_postfix();
 public:
-    expression();
+   // expression();
     expression(std::string& input_expression);
     expression (double input);
 
 
 
     double calculate_postfix();
-    friend std::ostream& operator>>(std::ostream& steam, expression& RHS);
+    friend std::istream& operator>>(std::istream& stream, expression& RHS);
 
 };
 

@@ -3,6 +3,7 @@
 //
 
 #include "stack.h"
+#include <iostream>
 
 stack::stack():head(nullptr), size(0) {}
 
@@ -11,8 +12,8 @@ stack::stack(std::string &data) {
     size =1;
 }
 stack::stack(double inp){
-    head = nullptr;
-    size = 0;
+    head = new node(inp);
+    size = 1;
 }
 
 stack::stack(const stack &original) {
@@ -37,6 +38,8 @@ stack::~stack() {
         delete head;
         head=temp;
     }
+
+   // std::cout << "destructor called" << std:: endl;
     //step 1 create destructor similar to linked list
 }
 
@@ -80,22 +83,22 @@ std::string &stack::top() const {
     //step 1 Write this function to return  the data from the top node on the stack
 }
 
-void stack::push(double info){
+/*void stack::push(double info){
     if (head->next != nullptr) {
         node *temp = head;
         head = new node(info);
         head->next = temp;
         size++;
     }
-}
+}*/
 
 void stack::push(std::string &data) {
-    if (head->next != nullptr) {
-        node *temp = head;
-        head = new node(data);
-        head->next = temp;
-        size++;
-    }
+
+    node *temp = head;
+    head = new node(data);
+    head->next = temp;
+    size++;
+
     //step 1 store address of current top node (pointed to by head) in a node*
     //step 2 create a new node with the incoming data variable, storing the address of this node in head pointer
     //step 3 update new nodes next pointer with the address stored in step 1
@@ -104,12 +107,12 @@ void stack::push(std::string &data) {
 }
 
 void stack::pop() {
-    if (head->next != nullptr) {
+
         node *temp = head;
         head = head->next;
         delete temp;
         size--;
-    }
+
     //step 1 store address of current top node (pointed to by head) in a node*
     //step 2 update head with address of second node
     //step 3 delete node pointed to by address stored in step 1

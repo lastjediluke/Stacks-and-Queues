@@ -13,6 +13,10 @@ double expression::calculate_postfix(){
 
 }
 
+std::istream& operator>>(std::istream& stream, expression& RHS){
+
+}
+
 expression::expression(std::string& input_expression){
     std::string operators[] = {"+", "-", "*", "/"};
     for (int i = 0; i < 4; i++){
