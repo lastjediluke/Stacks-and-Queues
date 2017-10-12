@@ -8,8 +8,9 @@
 
 #include "queue.h"
 #include "stack.h"
-
-class expression {
+#include <iostream>
+#include <sstream>
+class expression {      //I did not actually use expression functions
     queue infix;
    queue postfix;
 
@@ -31,5 +32,24 @@ public:
 
 };
 
+
+/* while (true){
+
+        std::cout << ">>";
+        std::cin>>s;
+        int nums = 0;
+        if (std::istringstream(s) >> nums){
+            obj.push(s);
+            //std::cout << obj.top() << std::endl;
+        }
+        else if (isop(s)){
+            calculate(s, obj);
+            //std::cout << obj.top() << std::endl;
+        }
+        else if (s == "q"){
+            return 0;
+        }
+    }
+*/
 
 #endif //LAB5_STACKS_AND_QUEUES_POSTFIX_EXPRESSION_H
