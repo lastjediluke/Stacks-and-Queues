@@ -7,21 +7,21 @@
 #include <string>
 int precedence (std::string &a);
 //int precedence (char a);
-void infix_postfix(std::string &exp){
+void infix_postfix(std::string &exp, std::string &res){
     stack s;
-    std::string result;
+    //std::string result;
     for (int i = 0; i < exp.length(); i++){
         std::string check;
         check = exp[i];
         if (check != "+"&& check!= "-" && check!= "*" && check != "/" && check != "^"){
-            result+=exp[i];
+            res+=exp[i];
         }
         else if (check == "+"|| check== "-" || check== "*" || check == "/" || check == "^"){
             std::string thing;
             thing = exp[i];
 
             while (!s.isEmpty() && precedence(s.top()) >= precedence(thing) ){
-                result += s.top();
+                res += s.top();
                 s.pop();
             }
             std::string bud;
@@ -30,11 +30,11 @@ void infix_postfix(std::string &exp){
         }
     }
     while (!s.isEmpty()){
-        result += s.top();
+        res += s.top();
         s.pop();
     }
 
-    std::cout << result << std::endl;
+    std::cout << res << std::endl;
 }
 
 
@@ -46,12 +46,37 @@ void calculate (const std::string & str, stack &obj);
 
 int main() {
     std:: cout << "You are now about to be Reverse Polished" << std::endl;
-   // stack obj;
-    std::string exp = "a+b*c^e";
-    infix_postfix(exp);
+    stack obj;
+    stack obj2;
+    std::string result;
+    std::string exp = "1+2*3-4";
+    infix_postfix(exp, result);
+    std::string s = "";
+    //std::cout << result << std::endl;
+    int nums = 0;
+
+
+
+
+
+
+       for (int i = 0; i < 7; i++) {
+           std::string z;
+           z = result[i];
+
+           if (std::istringstream(z) >> nums) {
+               obj2.push(z);
+
+               //std::cout << obj.top() << std::endl;
+           } else if (isop(z)) {
+               calculate(z, obj2);
+               //std::cout << obj.top() << std::endl;
+           }
+       }
+
 
    /* while (true){
-        std::string s = "";
+
         std::cout << ">>";
         std::cin>>s;
         int nums = 0;
