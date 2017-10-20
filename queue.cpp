@@ -74,7 +74,7 @@ return head->data;
 }
 
 void queue::enqueue(std::string &data) {
-    if (head->next != nullptr) {
+    if (head != nullptr) {
         auto *temp = new node(data);
         tail->next = temp;
         tail = temp;
@@ -89,7 +89,7 @@ void queue::enqueue(std::string &data) {
 }
 
 void queue::dequeue() {
-    if (head->next != nullptr) {
+    if (head != nullptr) {
         node *temp = head;
         head = head->next;
         delete temp;
